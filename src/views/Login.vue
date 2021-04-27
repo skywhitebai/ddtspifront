@@ -1,33 +1,39 @@
 <template>
   <div class="main-box">
     <!-- 通过:rules="loginFormRules"来绑定输入内容的校验规则 -->
-	<div class="login-box">
-	<el-form
-      :rules="loginFormRules"
-      ref="loginForm"
-      :model="loginForm"
-      label-position="right"
-      label-width="auto"
-      show-message
-    >
-      <span class="login-title">欢迎登陆</span></br>
-      <span class="login-title" style="font-size: 24px;">点点通业务管理系统</span>
-      <div style="margin-top: 5px"></div>
-      <el-form-item label="用户名" prop="userName">
-        <el-col :span="22">
-          <el-input type="text" v-model="loginForm.userName"></el-input>
-        </el-col>
-      </el-form-item>
-      <el-form-item label="密码" prop="password">
-        <el-col :span="22">
-          <el-input type="password" v-model="loginForm.password"></el-input>
-        </el-col>
-      </el-form-item>
-      <el-form-item>
-        <el-button type="primary" @click="loginSubmit()">登录</el-button>
-      </el-form-item>
-    </el-form>
-	</div>
+    <div class="login-box">
+      <el-form :rules="loginFormRules"
+               ref="loginForm"
+               :model="loginForm"
+               label-position="right"
+               label-width="auto"
+               show-message>
+        <span class="login-title">欢迎登陆</span></br>
+        <span class="login-title"
+              style="font-size: 24px;">点点通业务管理系统</span>
+        <div style="margin-top: 5px"></div>
+        <el-form-item label="用户名"
+                      prop="userName">
+          <el-col :span="22">
+            <el-input type="text"
+                      v-model="loginForm.userName"></el-input>
+          </el-col>
+        </el-form-item>
+        <el-form-item label="密码"
+                      prop="password">
+          <el-col :span="22">
+            <el-input type="password"
+                      v-model="loginForm.password"></el-input>
+          </el-col>
+        </el-form-item>
+        <el-form-item>
+          <el-button type="primary"
+                     @click="loginSubmit()">登录</el-button>
+          <el-button type="primary"
+                     @click="register()">注册</el-button>
+        </el-form-item>
+      </el-form>
+    </div>
   </div>
 </template>
 <script>
@@ -36,7 +42,7 @@ import cookieUtil from "../common/js/utils/cookieUtil.js";
 import request from "../api/request.js";
 export default {
   name: "login",
-  data() {
+  data () {
     return {
       loginForm: {
         userName: "",
@@ -54,7 +60,7 @@ export default {
     };
   },
   methods: {
-    loginSubmit() {
+    loginSubmit () {
       // 为表单绑定验证功能
       this.$refs.loginForm.validate((valid) => {
         if (valid) {
@@ -63,17 +69,18 @@ export default {
           formData.append("userName", this.loginForm.userName);
           formData.append("password", this.loginForm.password);
           request.login(formData).then((res) => {
-			  console.log(res);
-            if (res.data.code == 200) {
+            console.log(res);
+            if (res.code == 200) {
               _this.$message({
                 message: "登录成功",
                 type: "success",
               });
-              cookieUtil.setCookie("loginToken", res.data.data.token, 14);
-              cookieUtil.setCookie("userName", res.data.data.userName, 14);
+              cookieUtil.setCookie("loginToken", res.data.loginToken, 14);
+              cookieUtil.setCookie("userName", res.data.userName, 14);
+              cookieUtil.setCookie("realName", res.data.realName, 14);
               _this.$router.push({ path: "/" });
             } else {
-              _this.$message.error(res.data.message);
+              _this.$message.error(res.message);
             }
           });
         } else {
@@ -81,22 +88,24 @@ export default {
         }
       });
     },
+    register () {
+      this.$message.error("暂未实现");
+    }
   },
 };
 </script>
 <style>
-	html{
-		overflow-y: hidden;
-		background: url(../assets/bg1.jpg) no-repeat;
-		background-size: 100%;
-		
-	}
+html {
+  overflow-y: hidden;
+  background: url(../assets/bg1.jpg) no-repeat;
+  background-size: 100%;
+}
 </style>
 <style scoped>
-	.main-box{
-		width: 100%;
-		height: 100%;
-	}
+.main-box {
+  width: 100%;
+  height: 100%;
+}
 .login-box {
   border: 1px solid #dcdfe6;
   width: 350px;
@@ -116,8 +125,8 @@ export default {
   font-size: 30px;
   font-weight: bold;
 }
-.el-button--primary{
-	height: 30px;
-	line-height: 7px;
+.el-button--primary {
+  height: 30px;
+  line-height: 7px;
 }
 </style>

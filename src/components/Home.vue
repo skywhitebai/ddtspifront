@@ -13,7 +13,7 @@
 			<span>业务办理平台</span>
 		</div>
         <div class="header-right" style="color: white;">
-          {{loginRealName}}
+          {{realName}}
           <el-button type="text" @click="showChangePassword()">修改密码</el-button>
           <el-button type="text" @click="logout()">退出登录</el-button>
         </div>
@@ -140,9 +140,8 @@ import request from "../api/request.js";
 export default {
   data: function () {
     return {
-      loginRealName: "",
+      realName: "",
       loginToken: "",
-      loginTokenName: "",
       dialogChangePasswordFormVisible: false,
       changePasswordInfo: {},
       formLabelWidth: "70px",
@@ -158,20 +157,12 @@ export default {
       if (this.loginToken == null || this.loginToken === "") {
         logout();
       }
-      this.loginName = cookieUtil.getCookie("loginName");
+      this.realName = cookieUtil.getCookie("realName");
     },
     logout() {
-      cookieUtil.cle;
       cookieUtil.clearCookie("loginToken");
-      cookieUtil.clearCookie("loginName");
-      cookieUtil.clearCookie("isAdmin");
-      cookieUtil.clearCookie("roleInt");
-      cookieUtil.clearCookie("cityName");
-      cookieUtil.clearCookie("isMainUser");
-      cookieUtil.clearCookie("isCountyDepartment");
-      cookieUtil.clearCookie("loginTokenName");
-      cookieUtil.clearCookie("departmentId");
-      cookieUtil.clearCookie("departmentName");
+      cookieUtil.clearCookie("userName");
+      cookieUtil.clearCookie("realName");
       this.$router.push("/login");
       location.reload();
     },

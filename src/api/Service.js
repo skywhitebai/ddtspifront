@@ -33,7 +33,7 @@ instance.interceptors.response.use(
         if (response.data.code) {
             console.log(response.data.code);
             switch (response.data.code) {
-                case 1002:
+                case 401:
                     store.state.isLogin = false
                     router.replace({
                         path: 'login',
@@ -43,11 +43,11 @@ instance.interceptors.response.use(
                     })
             }
         }
-        return response
+        return response.data
     },
     //接口错误状态处理，也就是说无响应时的处理
     error => {
-        if(error.response.data.message==="会话失效，请重新登录")    {
+        if(error.response.data.message==="未登录或登录超时,请重新登录")    {
             router.replace({
                 path: '/login',
                 query: {
@@ -55,6 +55,6 @@ instance.interceptors.response.use(
                 }
             })
         }    
-        return error.response // 返回接口返回的错误信息
+        return error.response.data // 返回接口返回的错误信息
     })
 export default instance;
