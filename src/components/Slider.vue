@@ -65,7 +65,7 @@ export default {
         { route: "/main", name: "首页", icon: "el-icon-s-home" },
         { route: "/account", name: "账号管理", icon: "el-icon-user" },
         {
-          route: "/authManage",
+          route: "/amazonAuth",
           name: "授权管理",
           icon: "el-icon-s-order",
         },
