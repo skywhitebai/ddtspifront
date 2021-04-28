@@ -9,16 +9,20 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name:'主页',
+    name: '主页',
     component: Home,
     children: [{
       path: '/main',
       name: '首页',
       component: Main
-    }
+    }, {
+      path: '/amazonAuth',
+      name: '授权管理',
+      component: () => import('../components/AmazonAuth.vue')
+    },
     ]
   },
- 
+
   {
     path: '/login',
     name: 'Login',
@@ -35,7 +39,7 @@ const routes = [
 ]
 // 解决ElementUI导航栏中的vue-router在3.0版本以上重复点菜单报错问题
 const originalPush = VueRouter.prototype.push
-VueRouter.prototype.push = function push(location) {
+VueRouter.prototype.push = function push (location) {
   return originalPush.call(this, location).catch(err => err)
 }
 

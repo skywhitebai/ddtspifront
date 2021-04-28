@@ -1,0 +1,24 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+.search {
+  text-align: left;
+}
+
+.inputrowbox {
+  display: inline-block;
+  vertical-align: middle;
+  height: 40px;
+  line-height: 40px;
+  padding: 5px 10px;
+}
+
+.inputrowbox input, .inputrowbox select {
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  height: 30px;
+  margin-left: 10px;
+  padding: 0 10px;
+}
