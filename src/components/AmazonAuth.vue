@@ -21,7 +21,9 @@
         <el-button type="primary"
                    @click="bindAmazonAuthList(true)">查询</el-button>
         <el-button type="primary"
-                   @click="amazonAuth()">授权</el-button>
+                   @click="amazonAuth()">北美授权</el-button>
+        <el-button type="primary"
+                   @click="amazonAuth()">欧洲授权</el-button>
       </div>
     </div>
     <!-- 列表 -->
@@ -57,7 +59,7 @@
         </template>
       </el-table-column>
       <el-table-column label="操作"
-                       width="50"
+                       width="80"
                        prop>
         <template scope="scope">
           <el-button type="text"
@@ -138,7 +140,7 @@ export default {
       });
     },
     amazonAuth () {
-      var authUrl = "https://sellercentral.amazon.com/apps/authorize/consent?application_id=appidexample&state=stateexample&version=beta";
+      var authUrl = "https://sellercentral.amazon.com/apps/authorize/consent?application_id=amzn1.sp.solution.d7bd69b6-e700-4ca2-a525-71467b081116&state=stateexample&version=beta";
       window.open(authUrl, '_blank')
     },
   },

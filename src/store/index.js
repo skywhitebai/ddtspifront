@@ -10,27 +10,26 @@ Vue.use(Vuex);
 const store = new Vuex.Store({
   state: {
     options: [],
-    activeIndex: '/user',
+    activeIndex: '/main',
     userInfo: {},
-    complaintInfoComplaintId: null
   },
   mutations: {
     // 添加tabs
-    add_tabs(state, data) {
+    add_tabs (state, data) {
       console.log("add_tabs" + data.route);
 
       for (let i in this.state.options) {
         if (this.state.options[i].route == data.route) {
           return;
         }
-        if(data.route=="/login"){
+        if (data.route == "/login") {
           return;
         }
       }
       this.state.options.push(data);
     },
     // 删除tabs
-    delete_tabs(state, route) {
+    delete_tabs (state, route) {
       let index = 0;
       for (let option of state.options) {
         if (option.route === route) {
@@ -41,11 +40,11 @@ const store = new Vuex.Store({
       this.state.options.splice(index, 1);
     },
     // 设置当前激活的tab
-    set_active_index(state, index) {
+    set_active_index (state, index) {
       this.state.activeIndex = index;
     },
     // 设置详情信息
-    save_detail_info(state, info) {
+    save_detail_info (state, info) {
       this.state.userInfo = info;
     }
   }

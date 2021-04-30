@@ -42,8 +42,7 @@ export default {
     },
     initMenus () {
       this.$store.state.options = [];
-      this.$router.push({ path: "/" });
-      //this.$router.push({ path: "/complaint" });
+      //this.$router.push({ path: "/" });
       // 刷新时以当前路由做为tab加入tabs
       this.$store.commit("add_tabs", { route: "/main", name: "首页" });
       if (this.$route.path !== "/") {
@@ -56,14 +55,10 @@ export default {
         this.$store.commit("set_active_index", "/main");
         this.$router.push("/main");
       }
-      var isMainUser = cookieUtil.getCookie("isMainUser");
-      var departmentName = cookieUtil.getCookie("departmentName");
-      var isCountyDepartment = cookieUtil.getCookie("isCountyDepartment");
-      var cityName = cookieUtil.getCookie("cityName");
       this.loginToken = cookieUtil.getCookie("loginToken");
       this.menus = [
         { route: "/main", name: "首页", icon: "el-icon-s-home" },
-        { route: "/account", name: "账号管理", icon: "el-icon-user" },
+        //{ route: "/account", name: "账号管理", icon: "el-icon-user" },
         {
           route: "/amazonAuth",
           name: "授权管理",
