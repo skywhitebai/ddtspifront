@@ -6,6 +6,9 @@ export default {
   listAmazonAuth: function (data) {
     return Service.post('/amazonAuth/listAmazonAuth', data)
   },
+  saveAmazonAuth: function (data) {
+    return Service.post('/amazonAuth/saveAmazonAuth', data)
+  },
   accountList: function (data) {
     return Service.post('/account/list', data)
   },

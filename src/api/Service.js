@@ -28,6 +28,7 @@ instance.interceptors.request.use(config => {
 // http response 拦截器
 instance.interceptors.response.use(
   response => {
+    debugger
     console.log("response.data.code:" + response.data.code);
     //拦截响应，做统一处理 
     if (response.data.code) {
@@ -55,6 +56,13 @@ instance.interceptors.response.use(
         }
       })
     }
-    return error.response.data // 返回接口返回的错误信息
+    debugger
+    var responseErro = {
+      code:"",
+      message:""
+    }
+    responseErro.code=error.response.data.status;
+    responseErro.message=error.response.data.error;
+    return responseErro // 返回接口返回的错误信息
   })
 export default instance;
