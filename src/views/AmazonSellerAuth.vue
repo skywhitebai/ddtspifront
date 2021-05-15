@@ -1,26 +1,24 @@
 <template>
-  <div class="about">
+  <div class="main">
     <h1>亚马逊授权</h1>
     <div>
       <div>
-        <span>商户id</span
-        ><input
-          type="text"
-          readonly="readonly"
-          style="width: 500px"
-          v-model="sellingPartnerId"
-        />
+        <span>商户id</span><input type="text"
+               readonly="readonly"
+               style="width: 500px"
+               v-model="sellingPartnerId" />
       </div>
       <br />
       <div>
-        <span>token</span
-        ><input
-          type="text"
-          readonly="readonly"
-          style="width: 500px"
-          v-model="spapiOauthCode"
-        />
+        <span>token</span><input type="text"
+               readonly="readonly"
+               style="width: 500px"
+               v-model="spapiOauthCode" />
       </div>
+    </div>
+    <div>
+      <el-button type="primary"
+                 @click="saveAmazonAuth">保 存</el-button>
     </div>
   </div>
 </template>
@@ -30,18 +28,18 @@ import cookieUtil from "../common/js/utils/cookieUtil.js";
 import request from "../api/request.js";
 import "../common/css/common.css";
 export default {
-  data() {
+  data () {
     return {
       sellingPartnerId: "",
-      spapiOauthCode: "",
+      spapiOauthCode: ""
     };
   },
   methods: {
-    initAuthInfo() {
+    initAuthInfo () {
       this.sellingPartnerId = this.$route.query.selling_partner_id;
       this.spapiOauthCode = this.$route.query.spapi_oauth_code;
     },
-    saveAmazonAuth() {
+    saveAmazonAuth () {
       var _this = this;
       var formData = new FormData();
       formData.append("sellingPartnerId", this.sellingPartnerId);
@@ -59,11 +57,11 @@ export default {
       });
     },
   },
-  mounted() {
+  mounted () {
     this.initAuthInfo();
     this.saveAmazonAuth();
   },
-  created() {
+  created () {
     var autotableheight = window.innerHeight - 350;
     this.autotableheight = autotableheight;
   },
