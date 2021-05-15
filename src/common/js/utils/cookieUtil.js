@@ -3,7 +3,7 @@ export default {
         let d = new Date()
         d.setTime(d.getTime() + (exdays * 24 * 60 * 60 * 1000))
         let expires = 'expires=' + d.toUTCString()
-        document.cookie = cname + '=' + cvalue + '; ' + expires
+        document.cookie = cname + '=' + encodeURI(cvalue) + '; ' + expires
     },
     getCookie: function (cname) {
         let name = cname + '='
@@ -14,7 +14,8 @@ export default {
             // console.log(c)
             while (c.charAt(0) === ' ') c = c.substring(1)
             if (c.indexOf(name) !== -1) {
-                return c.substring(name.length, c.length)
+                let value=c.substring(name.length, c.length);
+                return decodeURI(value);
             }
         }
         return ''

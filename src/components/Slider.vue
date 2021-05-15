@@ -30,7 +30,6 @@ export default {
   },
   methods: {
     checkLoginInfo () {
-      debugger
       var loginTokenNow = cookieUtil.getCookie("loginToken");
       if (loginTokenNow == null || loginTokenNow === "") {
         this.$router.push("/login");
