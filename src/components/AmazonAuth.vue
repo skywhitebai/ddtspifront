@@ -33,15 +33,11 @@
               style="width: 100%">
       <el-table-column prop="merchantId"
                        sortable
-                       label="买家id"
+                       label="卖家id"
                        width="120"></el-table-column>
       <el-table-column prop="shopName"
                        sortable
                        label="店铺名称"
-                       width="120"></el-table-column>
-      <el-table-column prop="customerId"
-                       sortable
-                       label="客户id"
                        width="120"></el-table-column>
       <el-table-column prop="endPointArea"
                        sortable
