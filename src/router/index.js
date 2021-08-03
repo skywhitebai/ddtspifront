@@ -8,7 +8,7 @@ Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/home',
     name: '主页',
     component: Home,
     children: [{
@@ -39,7 +39,7 @@ const routes = [
     name: '授权信息',
     component: () => import('../views/AmazonSellerAuth.vue')
   }, {
-    path: '/index',
+    path: '/',
     name: '首页',
     component: () => import('../views/Index.vue')
   }

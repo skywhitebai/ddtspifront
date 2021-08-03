@@ -78,7 +78,7 @@ export default {
               cookieUtil.setCookie("loginToken", res.data.loginToken, 14);
               cookieUtil.setCookie("userName", res.data.userName, 14);
               cookieUtil.setCookie("realName", res.data.realName, 14);
-              _this.$router.push({ path: "/" });
+              _this.$router.push({ path: "/main" });
             } else {
               _this.$message.error(res.message);
             }

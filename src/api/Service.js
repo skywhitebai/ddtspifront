@@ -37,7 +37,7 @@ instance.interceptors.response.use(
         case 401:
           store.state.isLogin = false
           router.replace({
-            path: 'login',
+            path: 'index',
             query: {
               redirect: router.currentRoute.fullPath
             }

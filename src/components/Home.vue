@@ -186,7 +186,7 @@ export default {
           );
           this.$router.push({ path: this.activeIndex });
         } else {
-          this.$router.push({ path: "/" });
+          this.$router.push({ path: "/main" });
         }
       }
     },

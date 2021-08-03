@@ -60,7 +60,7 @@ body > .el-container {
 }
 </style>
 <script>
-import md5 from "js-md5";
+
 import cookieUtil from "../common/js/utils/cookieUtil.js";
 import request from "../api/request.js";
 import "../common/css/common.css";
@@ -71,7 +71,9 @@ export default {
     };
   },
   methods: {
-    
+     login() {
+      this.$router.push("/login");
+    }
   },
   mounted () {
 
