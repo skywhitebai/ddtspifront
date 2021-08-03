@@ -38,6 +38,10 @@ const routes = [
     path: '/amazonSellerAuth',
     name: '授权信息',
     component: () => import('../views/AmazonSellerAuth.vue')
+  }, {
+    path: '/index',
+    name: '首页',
+    component: () => import('../views/Index.vue')
   }
 ]
 // 解决ElementUI导航栏中的vue-router在3.0版本以上重复点菜单报错问题
