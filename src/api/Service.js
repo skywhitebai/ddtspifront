@@ -56,13 +56,13 @@ instance.interceptors.response.use(
         }
       })
     }
-    debugger
-    var responseErro = {
+    var responseErro = { 
+      data:{
       code:"",
-      message:""
+      message:""}
     }
-    responseErro.code=error.response.data.status;
-    responseErro.message=error.response.data.error;
+    responseErro.data.code=error.response.data.status;
+    responseErro.data.message=error.response.data.error;
     return responseErro // 返回接口返回的错误信息
   })
 export default instance;

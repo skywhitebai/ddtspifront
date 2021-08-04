@@ -15,6 +15,9 @@ export default {
   saveAccount: function (data) {
     return Service.post('/account/save', data)
   },
+  registerAccount: function (data) {
+    return Service.post('/account/register', data)
+  },
   deleteAccount: function (data) {
     return Service.post('/account/delete', data)
   },

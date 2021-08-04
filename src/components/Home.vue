@@ -204,6 +204,7 @@ export default {
         this.changePasswordInfo.confirmNewPassword
       );
       request.changePassword(formData).then((res) => {
+           debugger
         if (res.data.code == 200) {
           _this.$message({
             message: "修改密码成功",
