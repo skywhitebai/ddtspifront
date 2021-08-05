@@ -1,5 +1,5 @@
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+      <h1>aissky系统 您值得信赖的亚马逊管理系统</h1>
   </div>
 </template>

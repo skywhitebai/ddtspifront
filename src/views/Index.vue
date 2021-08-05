@@ -10,7 +10,7 @@
     z-index: 999;">
         <div class="header-left" style="color: white;display: flex;align-items: center;">
 			<!-- <img width="40px" src="../assets/ldjc.png" /> -->
-			<span>点点通销售管理系统</span>
+			<span>aissky系统</span>
 		</div>
         <div class="header-right" style="color: white;">
           <el-button type="text" @click="showRegister()">注册</el-button>
@@ -43,7 +43,10 @@
         <el-button type="primary" @click="register()">注 册</el-button>
       </div>
     </el-dialog>
-  </div>
+    <div>
+ 
+    </div>
+  </div>  
 </template>
 <style scoped>
 html,
@@ -115,14 +118,15 @@ export default {
       formData.append("mobile", this.registerInfo.mobile);
       formData.append("realName", this.registerInfo.realName);
       request.registerAccount(formData).then((res) => {
-        if (res.data.code == 200) {
+        debugger
+        if (res.code == 200) {
           _this.$message({
             message: "注册成功，等待审核",
             type: "success",
           });
           this.dialogRegisterFormVisible = false;
         } else {
-          _this.$message.error(res.data.message);
+          _this.$message.error(res.message);
         }
       });
     }

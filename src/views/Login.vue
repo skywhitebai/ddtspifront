@@ -29,8 +29,6 @@
         <el-form-item>
           <el-button type="primary"
                      @click="loginSubmit()">登录</el-button>
-          <el-button type="primary"
-                     @click="register()">注册</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -69,7 +67,7 @@ export default {
           formData.append("userName", this.loginForm.userName);
           formData.append("password", this.loginForm.password);
           request.login(formData).then((res) => {
-            console.log(res);
+            debugger
             if (res.code == 200) {
               _this.$message({
                 message: "登录成功",

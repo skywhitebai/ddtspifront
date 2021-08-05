@@ -204,15 +204,14 @@ export default {
         this.changePasswordInfo.confirmNewPassword
       );
       request.changePassword(formData).then((res) => {
-           debugger
-        if (res.data.code == 200) {
+        if (res.code == 200) {
           _this.$message({
             message: "修改密码成功",
             type: "success",
           });
           this.dialogChangePasswordFormVisible = false;
         } else {
-          _this.$message.error(res.data.message);
+          _this.$message.error(res.message);
         }
       });
     },
