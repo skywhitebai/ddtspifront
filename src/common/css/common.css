@@ -3,6 +3,11 @@
   padding: 0;
 }
 
+html {
+  background: url(../../assets/bg1.jpg) repeat-y;
+  background-size: 100%;
+}
+
 .search {
   text-align: left;
 }
@@ -21,4 +26,17 @@
   height: 30px;
   margin-left: 10px;
   padding: 0 10px;
+}
+
+.el-header, .el-footer {
+  background-color: rgba(0, 0, 0, 0.2);
+  color: #333;
+  text-align: center;
+  line-height: 60px;
+}
+
+.el-main {
+  color: #333;
+  vertical-align: top;
+  overflow-y: auto;
 }

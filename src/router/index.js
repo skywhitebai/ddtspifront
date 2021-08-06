@@ -21,16 +21,6 @@ const routes = [
       component: () => import('../components/AmazonAuth.vue')
     },
     ]
-  },  
-  {
-    path: '/about',
-    name: 'About',
-    component: () => import( '../views/About.vue')
-  },
-  {
-    path: '/login',
-    name: 'Login',
-    component: Login
   }, {
     path: '/amazonSellerAuth',
     name: '授权信息',
@@ -39,7 +29,27 @@ const routes = [
     path: '/',
     name: '首页',
     component: () => import('../views/Index.vue'),
-    children:[]
+    children: [
+      {
+        path: '/about',
+        name: 'About',
+        component: () => import('../views/About.vue')
+      },
+      {
+        path: '/privacy',
+        name: 'Privacy',
+        component: () => import('../views/Privacy.vue')
+      },
+      {
+        path: '/termsConditions',
+        name: 'TermsConditions',
+        component: () => import('../views/TermsConditions.vue')
+      },
+      {
+        path: '/login',
+        name: 'Login',
+        component: Login
+      }]
   }
 ]
 // 解决ElementUI导航栏中的vue-router在3.0版本以上重复点菜单报错问题

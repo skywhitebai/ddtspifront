@@ -92,13 +92,6 @@ export default {
   },
 };
 </script>
-<style>
-html {
-  overflow-y: hidden;
-  background: url(../assets/bg1.jpg) no-repeat;
-  background-size: 100%;
-}
-</style>
 <style scoped>
 .main-box {
   width: 100%;
